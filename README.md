@@ -12,5 +12,3 @@ Frontend: React.js, CSS
 API: NewsAPI
 
 Image Samples:
-![Screenshot (81)](https://github.com/user-attachments/assets/aa9b93d5-5a4a-46c1-a8f2-e79b1c931019)
-![Screenshot (82)](https://github.com/user-attachments/assets/7f530c8b-43e4-484f-8584-1a4f8422e9af)
