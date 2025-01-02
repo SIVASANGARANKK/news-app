@@ -16,7 +16,7 @@ const NewsBoard = () => {
   return (
     <div className="bg-dark">
       <h2 className="card bg-dark text-light text-center mb-0">
-        3AI LAB <span className="badge bg-danger">Computer Science and Engineering</span>
+        AI LAB <span className="badge bg-danger">Computer Science and Engineering</span>
       </h2>
       <Carousel>
         {articles.map((news, index) => (
