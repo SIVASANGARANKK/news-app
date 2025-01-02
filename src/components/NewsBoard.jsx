@@ -1,28 +1,37 @@
-import { useEffect } from "react"
-import { useState } from "react"
-import Newsitem from "./Newsitem"
+import React, { useEffect, useState } from "react";
+import { Carousel } from "react-bootstrap";
+import Newsitem from "./Newsitem";  
 
 const NewsBoard = () => {
-    const [articles,setArticles] = useState([])
-    useEffect(()=>{
-        let url =`https://newsapi.org/v2/top-headlines?country=in&apiKey=${import.meta.env.VITE_API_KEY}`
-        fetch(url).then(response => response.json()).then(data =>setArticles(data.articles))
+  const [articles, setArticles] = useState([]);
+  const topic = "Machine Learning(AI)";
 
-    },[])
+  useEffect(() => {
+    const url = `https://newsapi.org/v2/everything?q=${topic}&apiKey=${import.meta.env.VITE_API_KEY}`;
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => setArticles(data.articles));
+  }, []);
+
   return (
-    <div>
-        <h2 className="text-center">Latest <span className="badge bg-danger">News</span></h2>
-        {articles.map((news,index)=>{
-            return <Newsitem  
-            key={index}
-            title = {news.title}
-            description  = {news.description}
-            src ={news.urlToImage}
-            url={news.url}
+    <div className="bg-dark">
+      <h2 className="card bg-dark text-light text-center mb-0">
+        3AI LAB <span className="badge bg-danger">Computer Science and Engineering</span>
+      </h2>
+      <Carousel>
+        {articles.map((news, index) => (
+          <Carousel.Item key={index}>
+            <Newsitem
+              title={news.title}
+              description={news.description}
+              src={news.urlToImage}
+              url={news.url}
             />
-        })}
+          </Carousel.Item>
+        ))}
+      </Carousel>
     </div>
-  )
-}
+  );
+};
 
-export default NewsBoard
+export default NewsBoard;
